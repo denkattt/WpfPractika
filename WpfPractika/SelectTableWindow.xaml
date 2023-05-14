@@ -1,0 +1,45 @@
+﻿<Window x:Class="WpfPractika.SelectTableWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfPractika"
+        mc:Ignorable="d"
+        Title="SelectTableWindow" Height="350" Width="650" ResizeMode="NoResize">
+    <Grid>
+        <StackPanel>
+            <StackPanel>
+                <Label Margin="0,0,0,5" FontSize="20">Что либо связанное с пользователями:</Label>
+                <WrapPanel>
+                    <Button Content="Бронирования" Width="140" FontSize="15" HorizontalAlignment="Left" Click="Booking_Click"/>
+                    <Button Content="Пользователи" Width="140" FontSize="15" HorizontalAlignment="Left" Click="Users_Click"/>
+                    <Button Content="Отзывы" Width="140" FontSize="15" HorizontalAlignment="Left" Click="Feedback_Click"/>
+                    <Button Content="Услуги брони (МКМ)" FontSize="15" Width="280" HorizontalAlignment="Left" Click="ServiceOfBooking_Click"/>
+                    <Button Content="Абонементы пользователей (МКМ)" FontSize="15" Width="280" HorizontalAlignment="Left" Click="SubscriptionUser_Click"/>
+                    <Button Content="Скидки брони (МКМ)" FontSize="15" Width="280" HorizontalAlignment="Left" Click="SaleBooking_Click"/>
+                </WrapPanel>
+            </StackPanel>
+            <StackPanel>
+                <Label Margin="0,0,0,5" FontSize="20">Что либо связанное с компьютерами:</Label>
+                <WrapPanel>
+                    <Button Content="Компьютеры" Width="140" FontSize="15" HorizontalAlignment="Left" Click="Pc_Click"/>
+                    <Button Content="Игры" Width="140" FontSize="15" HorizontalAlignment="Left" Click="Game_Click"/>
+                    <Button Content="Игры на ПК (МКМ)" Width="140" FontSize="15" HorizontalAlignment="Left" Click="GameOnPc_Click"/>
+                    <Button Content="Консоли" Width="140" FontSize="15" HorizontalAlignment="Left" Click="GameConsole_Click"/>
+                    <Button Content="Позиции в зале" Width="140" FontSize="15" HorizontalAlignment="Left" Click="HallSeat_Click"/>
+                </WrapPanel>
+            </StackPanel>
+            <StackPanel>
+                <Label Margin="0,0,0,5" FontSize="20">Прочее:</Label>
+                <WrapPanel>
+                    <Button Content="Тарифы" Width="140" FontSize="15" HorizontalAlignment="Left" Click="Rate_Click"/>
+                    <Button Content="Скидки" Width="140" FontSize="15" HorizontalAlignment="Left" Click="Sale_Click"/>
+                    <Button Content="Услуги" Width="140" FontSize="15" HorizontalAlignment="Left" Click="Service_Click"/>
+                    <Button Content="Абонементы" Width="140" FontSize="15" HorizontalAlignment="Left" Click="Subscription_Click"/>
+                    <Button Content="История изменений таблицы &quot;Бронирования&quot;" Width="420" FontSize="15" HorizontalAlignment="Left" Click="HistoryBooking_Click"/>
+                </WrapPanel>
+            </StackPanel>
+        </StackPanel>
+        <Button Content="Выйти из аккаунта" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="Exit_Click"/>
+    </Grid>
+</Window>
