@@ -27,13 +27,6 @@ namespace WpfPractika
     /// </summary>
     public partial class RegistrationWindow : Window
     {
-        int code = 1;
-        bool check;
-        string Login = "";
-        string registy_login = "";
-        string Password = "";
-        string registy_password = "";
-        string Role = "";
         public RegistrationWindow()
         {
             InitializeComponent();
@@ -71,9 +64,11 @@ namespace WpfPractika
         private async void Registration_Click(object sender, RoutedEventArgs e)
         {
             API api = new API();
-            if (Login_vvod.Text != "" && Password_vvod.Password != "" && Password_vvod_again.Password != "" && Second_name_vvod.Text != "" && First_name_vvod.Text != "" && Father_name_vvod.Text != "")
+            if (Login_vvod.Text != "" && Password_vvod.Password != "" && Password_vvod_again.Password != "" && 
+                Second_name_vvod.Text != "" && First_name_vvod.Text != "" && Father_name_vvod.Text != "")
             {
-                string answer = await api.Registration(Login_vvod.Text, Password_vvod.Password, Second_name_vvod.Text, First_name_vvod.Text, Father_name_vvod.Text);
+                string answer = await api.Registration(Login_vvod.Text, Password_vvod.Password, Second_name_vvod.Text, 
+                                                       First_name_vvod.Text, Father_name_vvod.Text);
                 if (answer == "OK")
                 {
                     MessageBox.Show("Вы зарегистрировались!", "Успех!");

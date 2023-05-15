@@ -76,6 +76,7 @@ namespace WpfPractika
             Grid.SetRow(btnAdd, numColumns);
             Grid.SetColumn(btnAdd, 0);
             Grid.SetColumnSpan(btnAdd, 2);
+
             btnAdd.Click += async (sender, e) =>
             {
                 string json = jsonConverter(tableClass);

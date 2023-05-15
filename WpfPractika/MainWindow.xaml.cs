@@ -167,19 +167,16 @@ namespace WpfPractika
         private async void btExcel_Click(object sender, RoutedEventArgs e)
         {
             var excelApp = await System.Threading.Tasks.Task.Run(() => new Excel.Application());
-            
 
             Workbook workbook = excelApp.Workbooks.Add();
             _Worksheet worksheet = workbook.ActiveSheet;
 
-            // Заполнение заголовков столбцов
             for (int i = 1; i <= dgItems.Columns.Count; i++)
             {
                 var header = dgItems.Columns[i - 1].Header;
                 worksheet.Cells[1, i] = header;
             }
 
-            // Заполнение данных из DataGrid
             for (int i = 0; i < dgItems.Items.Count; i++)
             {
                 var row = dgItems.Items[i];
@@ -189,36 +186,29 @@ namespace WpfPractika
                     worksheet.Cells[i + 2, j + 1] = cellValue != null ? cellValue.ToString() : string.Empty;
                 }
             }
+
             excelApp.Visible = true;
         }
 
         private async void btWord_Click(object sender, RoutedEventArgs e)
         {
-            // Создаем новый объект Word и добавляем в него новый документ
             var wordApp = await System.Threading.Tasks.Task.Run(() => new Word.Application());
-            
             var document = wordApp.Documents.Add();
 
             document.PageSetup.Orientation = Word.WdOrientation.wdOrientLandscape;
             document.Content.Font.Size = 12;
 
-            // Создаем таблицу в документе Word
             int rowsCount = dgItems.Items.Count + 1;
             int columnsCount = dgItems.Columns.Count;
             var table = document.Tables.Add(document.Range(), rowsCount, columnsCount);
 
-            // Устанавливаем свойства ячеек таблицы, чтобы были видны границы
             table.Borders.Enable = 1; // Включаем границы таблицы
             table.Borders.InsideLineStyle = Word.WdLineStyle.wdLineStyleSingle; // Стиль линии для внутренних границ
             table.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle; // Стиль линии для внешних границ
-
-            // Заполняем заголовки столбцов
             for (int i = 1; i <= columnsCount; i++)
             {
                 table.Cell(1, i).Range.Text = dgItems.Columns[i - 1].Header.ToString();
             }
-
-            // Заполняем ячейки таблицы данными
             for (int i = 0; i < dgItems.Items.Count; i++)
             {
                 var item = dgItems.Items[i];

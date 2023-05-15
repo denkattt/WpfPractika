@@ -71,7 +71,7 @@ namespace WpfPractika
             }
             return "";
         }
-        //test
+        
         public async Task<string> Put(string tableName, int id, string jsonData)
         {
             try 
